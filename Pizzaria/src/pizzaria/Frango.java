@@ -1,8 +1,8 @@
 package pizzaria;
-public class Calabresa extends Pizza{
+public class Frango extends Pizza{
     protected String nome;
     
-    public Calabresa(String nome, int id, int q, String t, String i, float p) {
+    public Frango(String nome, int id, int q, String t, String i, float p) {
         super(id, q, t, i, p);
         this.nome = nome;
     }

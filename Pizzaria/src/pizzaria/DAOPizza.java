@@ -6,8 +6,10 @@ import java.util.List;
 public class DAOPizza {
     private List<Pizza> databasePizza=new ArrayList();
     
-    public void create(Pizza p){
+    public Pizza create(Pizza p){
         databasePizza.add(p);
+        
+        return p;
     }
     
     public Pizza read(int id){
@@ -48,5 +50,15 @@ public class DAOPizza {
             report+=p.getPreco()+"\n";
         }
         return report;
+    }
+    
+    public Pizza getPizza(int id){
+        for(Pizza p : databasePizza){
+            if(p.getId()==id){
+                return p;
+            }  
+        }
+        System.out.println("Essa pizza nao existe");
+        return null;
     }
 }

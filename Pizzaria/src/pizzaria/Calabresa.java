@@ -1,7 +1,9 @@
 package pizzaria;
-public class Calabresa extends Pizza{
+
+public class Calabresa extends Pizza {
+
     protected String nome;
-    
+
     public Calabresa(String nome, int id, int q, String t, String i, float p) {
         super(id, q, t, i, p);
         this.nome = nome;
@@ -14,12 +16,12 @@ public class Calabresa extends Pizza{
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
+
     @Override
-    public void getPizza(Pizza p){
+    public void getPizza(Pizza p) {
         System.out.println("==== Pizza de " + this.getNome() + " ====");
         super.getPizza(p);
         System.out.println("======== ======== ========");
     }
-    
+
 }

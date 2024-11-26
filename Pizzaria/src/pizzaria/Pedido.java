@@ -30,7 +30,7 @@ public class Pedido {
     public void setPizzasPedido(List<Pizza> pizzasPedido) {
         this.pizzasPedido = pizzasPedido;
     }
-   
+
     private int idPedido;
     private List<Pizza> pizzasPedido = new ArrayList();
 
@@ -48,6 +48,7 @@ public class Pedido {
             i.getPizza(i);
         }
         this.totalCompra();
+        System.out.println("========================================================");
     }
 
     public boolean addPizza(Pizza pizza) {
@@ -61,9 +62,9 @@ public class Pedido {
 
     public void totalCompra() {
         double soma = 0;
-        for(Pizza i : pizzasPedido){
+        for (Pizza i : pizzasPedido) {
             double aux = i.getPreco();
-            soma= soma+aux;
+            soma = soma + aux;
         }
         System.out.println("TOTAL DA COMPRA: " + soma);
     }

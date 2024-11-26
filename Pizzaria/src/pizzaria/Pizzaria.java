@@ -25,7 +25,7 @@ public class Pizzaria {
 
             switch (opcao) {
                 case 1:
-                    System.out.println("=== iniciando novo dia de trabalho ===");
+                    System.out.println("=== Iniciando novo dia de trabalho ===");
 
                     DiaTrabalho dia = daoDiaT.create(new DiaTrabalho(1, dataEspecifica));
                     System.out.println("Dia de trabalho criado: " + dia.getDia());
@@ -37,12 +37,12 @@ public class Pizzaria {
                         System.out.println("[2] Menu Pedido");
                         System.out.println("[3] Mostrar Relatorio do dia");
                         System.out.println("[4] Sair");
-                        System.out.print("Escolha uma opção: ");
+                        System.out.print("Escolha uma opcao: ");
                         int acao = scanner.nextInt();
 
                         switch (acao) {
                             case 1:
-                                // pizza menu
+                                // Menu pizza
                                 boolean noMenuPizza = true;
                                 while (noMenuPizza) {
                                     System.out.println("\n====== MENU PIZZA =======");
@@ -51,7 +51,7 @@ public class Pizzaria {
                                     System.out.println("[3] Atualizar Preço de Pizza");
                                     System.out.println("[4] Remover Pizza");
                                     System.out.println("[5] Voltar ao menu de ações");
-                                    System.out.print("Escolha uma opção: ");
+                                    System.out.print("Escolha uma opcao: ");
                                     int opcaoPizza = scanner.nextInt();
                                     scanner.nextLine(); // Limpa o buffer do scanner
 
@@ -69,7 +69,6 @@ public class Pizzaria {
                                             System.out.println("\n=== Pizzas disponíveis ===");
                                             System.out.println(daoPizza.getAll());
                                             break;
-
                                         case 3:
                                             // Atualizar Pizza
                                             System.out.print("=== Atualizar Pizza ===");
@@ -89,12 +88,10 @@ public class Pizzaria {
                                                 System.out.println("Exclusao nao realizada");
                                             }
                                             break;
-
                                         case 5:
                                             // Voltar ao menu de ações
                                             noMenuPizza = false;
                                             break;
-
                                         default:
                                             System.out.println("Opcao invalida. Tente novamente.");
                                     }
@@ -109,7 +106,7 @@ public class Pizzaria {
                                     System.out.println("[3] Exibir Pedido por cliente");
                                     System.out.println("[4] Deletar Pedido");
                                     System.out.println("[5] Voltar ao menu de ações");
-                                    System.out.print("Escolha uma opção: ");
+                                    System.out.print("Escolha uma opcao: ");
                                     int opcaoPedido = scanner.nextInt();
 
                                     switch (opcaoPedido) {
@@ -125,6 +122,7 @@ public class Pizzaria {
 
                                             dia.addPedido(pedido1);
                                             System.out.println("Pedido adicionado com sucesso!");
+                                            leitor.close();
                                             break;
                                         case 2:
                                             // Exibir Pedidos
@@ -132,7 +130,7 @@ public class Pizzaria {
                                             daoPedido.getAll();
                                             break;
                                         case 3:
-                                            //Exibir pedido especifico
+                                            // Exibir pedido especifico
                                             System.out.println("=== Exibir Pedido por Cliente ===");
                                             System.out.println("Digite o Id do cliente que deseja ver os pedidos: ");
                                             Scanner leitor2 = new Scanner(System.in);
@@ -144,9 +142,10 @@ public class Pizzaria {
                                             } else {
                                                 System.out.println("Id de cliente nao existente");
                                             }
+                                            leitor2.close(); 
                                             break;
                                         case 4:
-                                            //deletar pedido
+                                            // Deletar pedido
                                             System.out.println("\n=== Remover Pedido ===");
                                             Pedido pedidoSD = daoPedido.read(1);
 
@@ -160,15 +159,13 @@ public class Pizzaria {
                                             // Voltar ao menu de ações
                                             noMenuPedido = false;
                                             break;
-
                                         default:
                                             System.out.println("Opcao invalida. Tente novamente.");
                                     }
                                 }
-
                                 break;
                             case 3:
-                                // relatorio do dia de trabalho
+                                // Relatorio do dia de trabalho
                                 dia.ExibirDiaTrabalho(dia);
                                 break;
                             case 4:
@@ -177,7 +174,7 @@ public class Pizzaria {
                                 noDiaDeTrabalho = false;
                                 break;
                             default:
-                                System.out.println("Opção inválida. Tente novamente.");
+                                System.out.println("Opcao invalida. Tente novamente.");
                         }
                     }
 
@@ -187,10 +184,10 @@ public class Pizzaria {
                     executando = false;
                     break;
                 default:
-                    System.out.println("Opção inválida! Tente novamente.");
+                    System.out.println("Opcao invalida! Tente novamente.");
             }
         }
+        
         scanner.close();
     }
-
 }

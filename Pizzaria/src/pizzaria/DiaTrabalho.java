@@ -6,11 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DiaTrabalho {
+
     private static int contadorId = 1;
     private int id;
     private LocalDate dia;
     private List<Pedido> pedidos = new ArrayList();
-    
+
     public DiaTrabalho(LocalDate dia) {
         this.id = contadorId++;
         this.dia = dia;
@@ -23,7 +24,6 @@ public class DiaTrabalho {
     public void setId(int id) {
         this.id = id;
     }
-    
 
     public LocalDate getDia() {
         return dia;
@@ -40,23 +40,31 @@ public class DiaTrabalho {
     public void setPedidos(List<Pedido> pedidos) {
         this.pedidos = pedidos;
     }
-    
-    public void ExibirDiaTrabalho(DiaTrabalho d){
-        System.out.println("==== Exibicao do dia de trabalho: " + this.dia + " ====");
-        System.out.println("ID do dia de trabalho: " + this.id);
 
+    public void ExibirDiaTrabalho(DiaTrabalho d) {
+        System.out.println("==== Exibicao do dia de trabalho: " + d.dia + " ====");
+        System.out.println("ID do dia de trabalho: " + d.id);
+        double soma = 0;
         for (Pedido i : pedidos) {
-            i.ExibirPedido(i);
+            i.ExibirPedido();
+            double aux = i.totalCompra();
+            soma = soma + aux;
         }
+        System.out.println("Total bruto: " + soma);
     }
     
+
+    public void ExibirDataTrabalho(DiaTrabalho d) {
+        System.out.println("- " + this.dia + " ID: " + this.id);
+    }
+
     public boolean addPedido(Pedido pedido) {
-        if (pedido == null) {
+        if (pedido == null || pedidos.contains(pedido)) {
             return false;
         } else {
             pedidos.add(pedido);
             return true;
         }
     }
-    
+
 }

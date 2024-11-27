@@ -26,8 +26,8 @@ public class DAOPizza {
         Pizza existeP = read(p.getId());
         if (existeP != null) {
             existeP.setQuantidade(p.getQuantidade());
-            existeP.setIngredientes(p.getIngredientes());
             existeP.setTamanho(p.getTamanho());
+            existeP.setIngredientes(p.getIngredientes());
             existeP.setPreco(p.getPreco());
             return true;
         }

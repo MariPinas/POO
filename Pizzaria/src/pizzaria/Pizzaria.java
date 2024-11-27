@@ -9,6 +9,13 @@ public class Pizzaria {
         DAODiaTrabalho daoDiaT = new DAODiaTrabalho();
         DAOPizza daoPizza = new DAOPizza();
         DAOPedido daoPedido = new DAOPedido();
+        DAOCliente daoCliente = new DAOCliente();
+
+        Cliente cliente1 = new Cliente("Maria");
+        Cliente cliente2 = new Cliente("Lucas");
+
+        daoCliente.create(cliente1);
+        daoCliente.create(cliente2);
 
         Scanner scanner = new Scanner(System.in);
         int opcao;
@@ -61,7 +68,7 @@ public class Pizzaria {
                                     System.out.println("\n====== MENU PIZZA =======");
                                     System.out.println("[1] Adicionar Pizza");
                                     System.out.println("[2] Exibir Pizzas");
-                                    System.out.println("[3] Atualizar Preco de Pizza");
+                                    System.out.println("[3] Atualizar Pizza");
                                     System.out.println("[4] Remover Pizza");
                                     System.out.println("[5] Voltar ao menu de acoes");
                                     System.out.print("Escolha uma opcao: ");
@@ -81,7 +88,7 @@ public class Pizzaria {
                                             break;
                                         case 2:
                                             // Exibir Pizzas
-                                            System.out.println("\n=== Pizzas disponíveis ===");
+                                            System.out.println("\n=== Pizzas disponiveis ===");
                                             daoPizza.getAll();
 
                                             break;
@@ -94,53 +101,62 @@ public class Pizzaria {
                                             if (daoPizza.read(id) != null) {
                                                 Pizza pizzaUP = daoPizza.read(id);
 
-                                                if (id == 1) {
-                                                    System.out.println("Você selecionou pizza de Calabresa");
-
-                                                    System.out.println("Digite a nova quantidade: ");
-                                                    int novaQuant = scanner.nextInt();
-                                                    pizzaUP.setQuantidade(novaQuant);
-                                                    System.out.println("Digite os novos ingredientes: ");
-                                                    String novoIngre = scanner.nextLine();
-                                                    pizzaUP.setIngredientes(novoIngre);
-                                                    System.out.println("Digite o novo preco: ");
-                                                    float novoPreco = scanner.nextFloat();
-                                                    scanner.nextLine();
-                                                    pizzaUP.setPreco(novoPreco);
-                                                    daoPizza.update(pizzaUP);
-                                                    System.out.println("Pizza atualizada com sucesso!");
-                                                    pizzaUP.getPizza(pizzaUP);
-                                                } else if (id == 2) {
-                                                    System.out.println("Você selecionou pizza de Frango");
-
-                                                    System.out.println("Digite a nova quantidade: ");
-                                                    int novaQuant = scanner.nextInt();
-                                                    pizzaUP.setQuantidade(novaQuant);
-                                                    System.out.println("Digite os novos ingredientes: ");
-                                                    String novoIngre = scanner.nextLine();
-                                                    pizzaUP.setIngredientes(novoIngre);
-                                                    System.out.println("Digite o novo preco: ");
-                                                    float novoPreco = scanner.nextFloat();
-                                                    scanner.nextLine();
-                                                    pizzaUP.setPreco(novoPreco);
-                                                    daoPizza.update(pizzaUP);
-                                                    System.out.println("Pizza atualizada com sucesso!");
-                                                    pizzaUP.getPizza(pizzaUP);
-                                                } else if (id == 3) {
-                                                    System.out.println("Você selecionou pizza de Nutella");
-                                                    System.out.println("Digite a nova quantidade: ");
-                                                    int novaQuant = scanner.nextInt();
-                                                    pizzaUP.setQuantidade(novaQuant);
-                                                    System.out.println("Digite os novos ingredientes: ");
-                                                    String novoIngre = scanner.nextLine();
-                                                    pizzaUP.setIngredientes(novoIngre);
-                                                    System.out.println("Digite o novo preco: ");
-                                                    float novoPreco = scanner.nextFloat();
-                                                    scanner.nextLine();
-                                                    pizzaUP.setPreco(novoPreco);
-                                                    daoPizza.update(pizzaUP);
-                                                    System.out.println("Pizza atualizada com sucesso!");
-                                                    pizzaUP.getPizza(pizzaUP);
+                                                switch (id) {
+                                                    case 1: {
+                                                        System.out.println("Voce selecionou pizza de Calabresa");
+                                                        System.out.println("Digite a nova quantidade: ");
+                                                        int novaQuant = scanner.nextInt();
+                                                        scanner.nextLine();
+                                                        pizzaUP.setQuantidade(novaQuant);
+                                                        System.out.println("Digite os novos ingredientes: ");
+                                                        String novoIngre = scanner.nextLine();
+                                                        pizzaUP.setIngredientes(novoIngre);
+                                                        System.out.println("Digite o novo preco: ");
+                                                        float novoPreco = scanner.nextFloat();
+                                                        scanner.nextLine();
+                                                        pizzaUP.setPreco(novoPreco);
+                                                        daoPizza.update(pizzaUP);
+                                                        System.out.println("Pizza atualizada com sucesso!");
+                                                        pizzaUP.getPizza(pizzaUP);
+                                                        break;
+                                                    }
+                                                    case 2: {
+                                                        System.out.println("Voce selecionou pizza de Frango");
+                                                        System.out.println("Digite a nova quantidade: ");
+                                                        int novaQuant = scanner.nextInt();
+                                                        pizzaUP.setQuantidade(novaQuant);
+                                                        System.out.println("Digite os novos ingredientes: ");
+                                                        String novoIngre = scanner.nextLine();
+                                                        pizzaUP.setIngredientes(novoIngre);
+                                                        System.out.println("Digite o novo preco: ");
+                                                        float novoPreco = scanner.nextFloat();
+                                                        scanner.nextLine();
+                                                        pizzaUP.setPreco(novoPreco);
+                                                        daoPizza.update(pizzaUP);
+                                                        System.out.println("Pizza atualizada com sucesso!");
+                                                        pizzaUP.getPizza(pizzaUP);
+                                                        break;
+                                                    }
+                                                    case 3: {
+                                                        System.out.println("Voce selecionou pizza de Nutella");
+                                                        System.out.println("Digite a nova quantidade: ");
+                                                        int novaQuant = scanner.nextInt();
+                                                        scanner.nextLine();
+                                                        pizzaUP.setQuantidade(novaQuant);
+                                                        System.out.println("Digite os novos ingredientes: ");
+                                                        String novoIngre = scanner.nextLine();
+                                                        pizzaUP.setIngredientes(novoIngre);
+                                                        System.out.println("Digite o novo preco: ");
+                                                        float novoPreco = scanner.nextFloat();
+                                                        scanner.nextLine();
+                                                        pizzaUP.setPreco(novoPreco);
+                                                        daoPizza.update(pizzaUP);
+                                                        System.out.println("Pizza atualizada com sucesso!");
+                                                        pizzaUP.getPizza(pizzaUP);
+                                                        break;
+                                                    }
+                                                    default:
+                                                        break;
                                                 }
 
                                             } else {
@@ -152,7 +168,7 @@ public class Pizzaria {
                                             System.out.println("\n=== Remover Pizza ===");
                                             System.out.println("Digite o id da pizza a deletar: ");
                                             int idDeletar = scanner.nextInt();
-                                            
+
                                             Pizza pizzaSD = daoPizza.read(idDeletar);
 
                                             if (daoPizza.delete(pizzaSD)) {
@@ -186,16 +202,32 @@ public class Pizzaria {
                                         case 1:
                                             // Criar Pedido
                                             System.out.println("=== Criando um novo Pedido ===");
-                                            Pedido pedido1 = daoPedido.create(new Pedido(1, 1));
-                                            System.out.println("Digite o Id da pizza que deseja adicionar ao Pedido: ");
+                                            System.out.println("Digite o ID do cliente para o qual deseja fazer o pedido: ");
+                                            int idCliente = scanner.nextInt();
+                                            scanner.nextLine();
 
-                                            int idPizza = scanner.nextInt(); // Reuse o scanner principal
-                                            scanner.nextLine(); // Limpa o buffer
-                                            pedido1.addPizza(daoPizza.getPizza(idPizza));
+                                            Cliente cliente = daoCliente.read(idCliente);
+                                            if (cliente == null) {
+                                                System.out.println("Cliente nao encontrado.");
+                                                continue;
+                                            }
+                                            Pedido pedido = daoPedido.create(new Pedido(cliente));
+                                            boolean loop = true;
+                                            while (loop) {
 
-                                            dia.addPedido(pedido1);
-                                            System.out.println("Pedido adicionado com sucesso!");
+                                                System.out.println("Digite o Id da pizza que deseja adicionar ao Pedido: ");
+                                                int idPizza = scanner.nextInt();
+                                                scanner.nextLine();
+                                                pedido.addPizza(daoPizza.getPizza(idPizza));
+                                                diaTrabalho.addPedido(pedido);
+                                                System.out.println("Pedido adicionado com sucesso!");
+                                                System.out.println("Continua? (s) ou (n)");
+                                                String continua = scanner.nextLine();
 
+                                                if (continua.equals("n")) {
+                                                    loop = false;
+                                                }
+                                            }
                                             break;
                                         case 2:
                                             // Exibir Pedidos
@@ -206,12 +238,16 @@ public class Pizzaria {
                                             // Exibir pedido especifico
                                             System.out.println("=== Exibir Pedido por Cliente ===");
                                             System.out.println("Digite o Id do cliente que deseja ver os pedidos: ");
-                                            int idCliente = scanner.nextInt();
+                                            int idClienteExibir = scanner.nextInt();
                                             scanner.nextLine();
-
-                                            Pedido existeP = daoPedido.readIdCliente(idCliente);
+                                            Cliente clienteExibir = daoCliente.read(idClienteExibir);
+                                            if (clienteExibir == null) {
+                                                System.out.println("Cliente nao encontrado.");
+                                                continue;
+                                            }
+                                            Pedido existeP = daoPedido.readIdCliente(clienteExibir);
                                             if (existeP != null) {
-                                                existeP.ExibirPedido(existeP);
+                                                existeP.ExibirPedido();
                                             } else {
                                                 System.out.println("Id de cliente nao existente");
                                             }
@@ -220,7 +256,10 @@ public class Pizzaria {
                                         case 4:
                                             // Deletar pedido
                                             System.out.println("\n=== Remover Pedido ===");
-                                            Pedido pedidoSD = daoPedido.read(1);
+                                            System.out.println("Digite o Id do pedido a excluir: ");
+                                            int idExcluir = scanner.nextInt();
+                                            scanner.nextLine();
+                                            Pedido pedidoSD = daoPedido.read(idExcluir);
 
                                             if (daoPedido.delete(pedidoSD)) {
                                                 System.out.println("Exclusao com sucesso");
@@ -239,7 +278,19 @@ public class Pizzaria {
                                 break;
                             case 3:
                                 // Relatorio do dia de trabalho
-                                dia.ExibirDiaTrabalho(dia);
+                                System.out.println("=== Exibir dia de trabalho ===");
+                                System.out.println("Dias disponiveis: ");
+                                daoDiaT.getAllData();
+                                System.out.println("Escolha o id do dia que deseja exibir: ");
+                                int idDiaT = scanner.nextInt();
+                                scanner.nextLine();
+
+                                DiaTrabalho diaVerificar = daoDiaT.read(idDiaT);
+                                if (diaVerificar == null) {
+                                    System.out.println("Dia de trabalho nao encontrado.");
+                                    continue;
+                                }
+                                diaTrabalho.ExibirDiaTrabalho(diaVerificar);
                                 break;
                             case 4:
                                 // Finalizar o dia de trabalho

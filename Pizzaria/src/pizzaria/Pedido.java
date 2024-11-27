@@ -4,15 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pedido {
+    private static int contadorId = 1;
+    private Cliente cliente;
 
-    private int idCliente;
-
-    public int getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
+    public Cliente getIdCliente() {
+        return cliente;
     }
 
     public int getIdPedido() {
@@ -34,20 +30,20 @@ public class Pedido {
     private int idPedido;
     private List<Pizza> pizzasPedido = new ArrayList();
 
-    public Pedido(int idPedido, int idCliente) {
-        this.idPedido = idPedido;
-        this.idCliente = idCliente;
+    public Pedido(Cliente cliente) {
+        this.idPedido = contadorId++;
+        this.cliente = cliente;
 
     }
 
-    public void ExibirPedido(Pedido p) {
+    public void ExibirPedido() {
         System.out.println("==== Exibicao do pedido de ID: " + this.idPedido + " ====");
-        System.out.println("ID do Comprador: " + this.idCliente);
+        System.out.println("Dados do Comprador: " + this.cliente);
 
         for (Pizza i : pizzasPedido) {
             i.getPizza(i);
         }
-        this.totalCompra();
+        System.out.println("TOTAL DA COMPRA: " + totalCompra());
         System.out.println("========================================================");
     }
 
@@ -60,13 +56,14 @@ public class Pedido {
         }
     }
 
-    public void totalCompra() {
+    public double totalCompra() {
         double soma = 0;
         for (Pizza i : pizzasPedido) {
             double aux = i.getPreco();
             soma = soma + aux;
         }
-        System.out.println("TOTAL DA COMPRA: " + soma);
+        return soma;
     }
+    
 
 }

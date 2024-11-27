@@ -8,7 +8,7 @@ import java.util.List;
  * @author mariana
  */
 public class DAODiaTrabalho {
-    private static int contadorId = 1;
+    
     private List<DiaTrabalho> databaseDiaTrabalho = new ArrayList();
 
     public DiaTrabalho create(DiaTrabalho d) {
@@ -50,5 +50,11 @@ public class DAODiaTrabalho {
             i.ExibirDiaTrabalho(i);
         }
 
+    }
+    
+    public void getAllData(){
+       for (DiaTrabalho i : databaseDiaTrabalho) {
+            i.ExibirDataTrabalho(i);
+        } 
     }
 }

@@ -23,7 +23,7 @@ public class DAOPedido {
         return null;
     }
     
-    public Pedido readIdCliente(int idCliente) {
+    public Pedido readIdCliente(Cliente idCliente) {
         for (Pedido p : databasePedido) {
             if (p.getIdCliente() == idCliente) {
                 return p;
@@ -35,7 +35,7 @@ public class DAOPedido {
     public boolean update(Pedido p) {
         Pedido existeP = read(p.getIdPedido());
         if (existeP != null) {
-            existeP.setIdCliente(p.getIdCliente());
+            existeP.setPizzasPedido(p.getPizzasPedido());
             return true;
         }
         return false;
@@ -53,7 +53,7 @@ public class DAOPedido {
     public void getAll() {
 
         for (Pedido i : databasePedido) {
-            i.ExibirPedido(i);
+            i.ExibirPedido();
         }
 
     }

@@ -8,7 +8,7 @@ import java.util.List;
  * @author mariana
  */
 public class DAODiaTrabalho {
-
+    private static int contadorId = 1;
     private List<DiaTrabalho> databaseDiaTrabalho = new ArrayList();
 
     public DiaTrabalho create(DiaTrabalho d) {

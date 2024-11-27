@@ -60,11 +60,14 @@ public abstract class Pizza {
     }
 
     public void getPizza(Pizza p) {
+        
         System.out.println("ID: " + p.getId());
         System.out.println("Tamanho: " + p.getTamanho());
         System.out.println("Ingredientes: " + getIngredientes());
         System.out.println("Quantidade em estoque: " + getQuantidade());
         System.out.println("Preco: " + getPreco());
     }
+    
+    
 
 }

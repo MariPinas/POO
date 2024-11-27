@@ -43,16 +43,17 @@ public class DAOPizza {
         return false;
     }
 
-    public String getAll() {
-        String report = "";
+    public void getAll() {
+        
         for (Pizza p : databasePizza) {
-            report += p.getId() + "\n";
-            report += p.getTamanho() + "\n";
-            report += p.getIngredientes() + "\n";
-            report += p.getQuantidade() + "\n";
-            report += p.getPreco() + "\n";
+
+            System.out.println("ID: " + p.getId());
+            System.out.println("Tamanho: " + p.getTamanho());
+            System.out.println("Ingredientes: " + p.getIngredientes());
+            System.out.println("Quantidade em estoque: " + p.getQuantidade());
+            System.out.println("Preco: " + p.getPreco());
         }
-        return report;
+        
     }
 
     public Pizza getPizza(int id) {

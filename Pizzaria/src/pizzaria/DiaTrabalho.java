@@ -6,12 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DiaTrabalho {
-    int id;
+    private static int contadorId = 1;
+    private int id;
     private LocalDate dia;
     private List<Pedido> pedidos = new ArrayList();
     
-    public DiaTrabalho(int id, LocalDate dia) {
-        this.id = id;
+    public DiaTrabalho(LocalDate dia) {
+        this.id = contadorId++;
         this.dia = dia;
     }
 

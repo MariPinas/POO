@@ -45,7 +45,8 @@ public class DiaTrabalho {
         System.out.println("==== Exibicao do dia de trabalho: " + d.dia + " ====");
         System.out.println("ID do dia de trabalho: " + d.id);
         double soma = 0;
-        for (Pedido i : pedidos) {
+        List <Pedido> aux1 = d.getPedidos();
+        for (Pedido i : aux1) {
             i.ExibirPedido();
             double aux = i.totalCompra();
             soma = soma + aux;

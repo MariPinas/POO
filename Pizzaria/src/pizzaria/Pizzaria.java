@@ -90,7 +90,6 @@ public class Pizzaria {
                                             // Exibir Pizzas
                                             System.out.println("\n=== Pizzas disponiveis ===");
                                             daoPizza.getAll();
-
                                             break;
                                         case 3:
                                             // Atualizar Pizza

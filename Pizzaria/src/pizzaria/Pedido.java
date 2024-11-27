@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pedido {
+
     private static int contadorId = 1;
     private Cliente cliente;
+    private int idPedido;
+    private List<Pizza> pizzasPedido = new ArrayList();
 
     public Cliente getIdCliente() {
         return cliente;
@@ -26,9 +29,6 @@ public class Pedido {
     public void setPizzasPedido(List<Pizza> pizzasPedido) {
         this.pizzasPedido = pizzasPedido;
     }
-
-    private int idPedido;
-    private List<Pizza> pizzasPedido = new ArrayList();
 
     public Pedido(Cliente cliente) {
         this.idPedido = contadorId++;
@@ -64,6 +64,5 @@ public class Pedido {
         }
         return soma;
     }
-    
 
 }

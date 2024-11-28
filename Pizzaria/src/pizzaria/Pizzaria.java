@@ -19,7 +19,7 @@ public class Pizzaria {
 
         Scanner scanner = new Scanner(System.in);
         int opcao;
-        LocalDate dataEspecifica = LocalDate.of(2024, 10, 26);
+        
         boolean executando = true;
         while (executando) {
             // Exibe o menu

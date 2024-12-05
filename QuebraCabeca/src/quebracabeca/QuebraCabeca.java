@@ -23,11 +23,11 @@ public class QuebraCabeca {
         Peca peca4 = new PecaCentro(b1,b1,b1,b4);
         
         Peca peca5 = new PecaCentro(b1,b1,b1,b4);
-        Peca peca6 = new PecaCentro(b2,b1,b3,b4);
+        Peca peca6 = new PecaCentro(b2,b1,b2,b4);
         
         Peca peca7 = new PecaCentro(b1,b2,b1,b4);
         Peca peca8 = new PecaCentro(b2,b1,b2,b4);
-        Peca peca9 = new PecaCentro(b1,b2,b1,b4);
+        Peca peca9 = new PecaCentro(b1,b2,b1,b2);
         
         if(peca2.Conectar(peca1,1)){
             System.out.println("Conectou");
@@ -75,7 +75,7 @@ public class QuebraCabeca {
         }else{
             System.out.println("Não conectou");
         }
-        if(peca9.Conectar(peca8, 1)&& peca6.Conectar(peca9, 0)){
+        if(peca9.Conectar(peca8, 1)&& peca6.Conectar(peca9, 2)){
             System.out.println("Conectou");
             tabuleiro1.posicionarPeca(2, 1, peca8);
         }else{

@@ -5,37 +5,40 @@ import java.util.List;
 
 public class PecaCentro extends Peca {
 
-    private int tipo;
-
-    public PecaCentro(int tipo, Borda b1, Borda b2, Borda b3, Borda b4) {
+    public PecaCentro(Borda b1, Borda b2, Borda b3, Borda b4) {
         super(b1, b2, b3, b4);
-        this.tipo=1; //Centro = 1 , Canto = 2, Borda =3.
     }
-
-    public int getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(int tipo) {
-        this.tipo = tipo;
-    }
-
-    
 
     @Override
-    public void mostraBordas() {
-        System.out.println("B1: " + b1 + "B2: " + b2 + "B3: " + b3 + "B4: " + b4);
-    }
+    public boolean Conectar(Peca peca, int lado) {
+        switch (lado) {
+            case 0:
+                if (this.b1.encaixaCom(b3)) {
+                    return true;
+                } else {
+                    return false;
+                }
 
-   
-    @Override
-    public boolean seConecta(Peca peca) {
-        if (this.b1.getA() == true) {
-            if(peca.b1.getA()==false || peca.b2.getA()==true||peca.b3.getA()==false||peca.b4.getA()==false)
-            return true;
-        } else if (this.b1.getB() == false && peca.b1.getB() == true) {
-            return true;
+            case 1:
+                if (this.b2.encaixaCom(b4)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            case 2:
+                if (this.b3.encaixaCom(b1)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            case 3:
+                if (this.b4.encaixaCom(b2)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            default:
+                return false;
         }
-        return false;
     }
 }

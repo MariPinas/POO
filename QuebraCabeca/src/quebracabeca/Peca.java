@@ -48,6 +48,5 @@ public abstract class Peca {
         this.b4 = b4;
     }
 
-    public void mostraBordas(){};
-    public boolean seConecta(Peca peca){return true;};
+    public abstract boolean Conectar(Peca peca, int lado);
 }

@@ -30,54 +30,53 @@ public class QuebraCabeca {
         Peca peca9 = new PecaCentro(b1,b2,b1,b2);
         
         if(peca2.Conectar(peca1,1)){
-            System.out.println("Conectou");
+            System.out.println("Conectou peca 1 com peca 2");
             tabuleiro1.posicionarPeca(0, 0, peca1);
             tabuleiro1.posicionarPeca(0, 1, peca2);
         }else{
             System.out.println("Não conectou");
         }
-        
         if(peca2.Conectar(peca3, 1)){
-            System.out.println("Conectou");
+            System.out.println("Conectou peca 3 com peca 2");
             tabuleiro1.posicionarPeca(0, 2, peca3);
         }else{
             System.out.println("Não conectou");
         }
         
         if(peca4.Conectar(peca1, 0)){
-            System.out.println("Conectou");
+            System.out.println("Conectou peca 4 com peca 1");
             tabuleiro1.posicionarPeca(1, 0, peca4);
         }else{
             System.out.println("Não conectou");
         }
         
         if(peca5.Conectar(peca4, 1) && peca2.Conectar(peca5,3)){
-            System.out.println("Conectou");
+            System.out.println("Conectou peca 4 com peca 5 e com peca 2");
             tabuleiro1.posicionarPeca(1, 1, peca5);
         }else{
             System.out.println("Não conectou");
         }
         if(peca6.Conectar(peca5, 1) && peca3.Conectar(peca6,3)){
-            System.out.println("Conectou");
+            System.out.println("Conectou peca 5 com peca 6 e peca 3");
             tabuleiro1.posicionarPeca(1, 2, peca6);
         }else{
             System.out.println("Não conectou");
         }
         if(peca7.Conectar(peca4, 0)){
-            System.out.println("Conectou");
+            System.out.println("Conectou peca 7 com peca 4");
             tabuleiro1.posicionarPeca(2, 0, peca7);
         }else{
             System.out.println("Não conectou");
         }
         if(peca8.Conectar(peca7, 1) && peca5.Conectar(peca8, 2)){
-            System.out.println("Conectou");
+            System.out.println("Conectou peca 7 com peca 8 e peca 5");
             tabuleiro1.posicionarPeca(2, 1, peca8);
         }else{
             System.out.println("Não conectou");
         }
         if(peca9.Conectar(peca8, 1)&& peca6.Conectar(peca9, 2)){
-            System.out.println("Conectou");
-            tabuleiro1.posicionarPeca(2, 1, peca8);
+            System.out.println("Conectou peca 8 com peca 9 e peca 6");
+            tabuleiro1.posicionarPeca(2, 2, peca9);
         }else{
             System.out.println("Não conectou");
         }

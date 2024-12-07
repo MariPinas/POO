@@ -12,6 +12,7 @@ import java.util.List;
  * @author aluno
  */
 public class DAOAtendimento {
+
     private List<Atendimento> databaseAtendimentos = new ArrayList();
 
     public Atendimento create(Atendimento d) {
@@ -28,13 +29,22 @@ public class DAOAtendimento {
         return null;
     }
 
-    public boolean update(Atendimento d) {
+    public boolean update(Atendimento d, String crmMedico) {
         Atendimento existeP = read(d.getId());
         if (existeP != null) {
-            existeP.setMedico(d.getMedico());
-            existeP.setPaciente(d.getPaciente());
-            existeP.setStatus(d.getStatus());
-            return true;
+            Medico isMedico = existeP.getMedico();
+
+            if (isMedico != null && isMedico.getCrm().equals(crmMedico)) {
+                existeP.setMedico(d.getMedico());
+                existeP.setPaciente(d.getPaciente());
+                existeP.setStatus(d.getStatus());
+                existeP.setDescricao(d.getDescricao());
+                return true;
+            } else {
+
+                System.out.println("Somente o medico"+isMedico.getNome()+ "que realizou o atendimento pode atualiza-lo.");
+                return false;
+            }
         }
         return false;
     }

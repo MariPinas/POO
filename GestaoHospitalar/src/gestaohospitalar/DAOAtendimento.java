@@ -35,14 +35,12 @@ public class DAOAtendimento {
             Medico isMedico = existeP.getMedico();
 
             if (isMedico != null && isMedico.getCrm().equals(crmMedico)) {
-                existeP.setMedico(d.getMedico());
-                existeP.setPaciente(d.getPaciente());
                 existeP.setStatus(d.getStatus());
                 existeP.setDescricao(d.getDescricao());
                 return true;
             } else {
 
-                System.out.println("Somente o medico"+isMedico.getNome()+ "que realizou o atendimento pode atualiza-lo.");
+                System.out.println("Somente o medico"+isMedico.getNome()+"que realizou o atendimento pode atualiza-lo.");
                 return false;
             }
         }

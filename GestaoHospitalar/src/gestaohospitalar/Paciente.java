@@ -8,12 +8,13 @@ package gestaohospitalar;
  *
  * @author aluno
  */
-public class Paciente extends Pessoa{
+public class Paciente extends Pessoa {
+
     private String nomeConvenio;
     private String numeroConvenio;
-    
+
     public Paciente(String nome, int id, String cpf, String end, String tel,
-            String nomeConv, String numConv){
+            String nomeConv, String numConv) {
         super(nome, id, cpf, end, tel);
         nomeConvenio = nomeConv;
         numeroConvenio = numConv;
@@ -36,9 +37,9 @@ public class Paciente extends Pessoa{
     }
 
     @Override
-    public void imprimir(){
+    public void imprimir() {
         super.imprimir();
-        System.out.println("Nome Convênio  : " + nomeConvenio);
-        System.out.println("Número Convênio: " + numeroConvenio);
+        System.out.println("Nome Convenio  : " + nomeConvenio);
+        System.out.println("Numero Convenio: " + numeroConvenio);
     }
 }

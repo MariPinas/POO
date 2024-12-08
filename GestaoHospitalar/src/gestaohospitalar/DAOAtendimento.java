@@ -29,14 +29,14 @@ public class DAOAtendimento {
         return null;
     }
 
-    public boolean update(Atendimento d, String crmMedico) {
-        Atendimento existeP = read(d.getId());
-        if (existeP != null) {
-            Medico isMedico = existeP.getMedico();
+    public boolean update(int idAt, String crmMedico) {
+        Atendimento existeA = read(idAt);
+        if (existeA != null) {
+            Medico isMedico = existeA.getMedico();
 
             if (isMedico != null && isMedico.getCrm().equals(crmMedico)) {
-                existeP.setStatus(d.getStatus());
-                existeP.setDescricao(d.getDescricao());
+                existeA.setStatus(existeA.getStatus());
+                existeA.setDescricao(existeA.getDescricao());
                 return true;
             } else {
 

@@ -13,7 +13,7 @@ public class Paciente extends Pessoa {
     private String nomeConvenio;
     private String numeroConvenio;
 
-    public Paciente(String nome, int id, String cpf, String end, String tel,
+    public Paciente(String nome, String id, String cpf, String end, String tel,
             String nomeConv, String numConv) {
         super(nome, id, cpf, end, tel);
         nomeConvenio = nomeConv;

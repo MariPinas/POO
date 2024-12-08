@@ -11,12 +11,12 @@ package gestaohospitalar;
 public abstract class Pessoa {
 
     private String nome;
-    private int identidade;
+    private String identidade;
     private String cpf;
     private String endereco;
     private String telefone;
 
-    public Pessoa(String nome, int id, String cpf, String end, String tel) {
+    public Pessoa(String nome, String id, String cpf, String end, String tel) {
         this.nome = nome;
         this.identidade = id;
         this.cpf = cpf;
@@ -32,11 +32,11 @@ public abstract class Pessoa {
         this.nome = nome;
     }
 
-    public int getIdentidade() {
+    public String getIdentidade() {
         return identidade;
     }
 
-    public void setIdentidade(int identidade) {
+    public void setIdentidade(String identidade) {
         this.identidade = identidade;
     }
 

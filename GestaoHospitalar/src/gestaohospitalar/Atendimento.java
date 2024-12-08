@@ -10,10 +10,11 @@ public class Atendimento {
     private Medico medico;
     private Paciente paciente;
     private String descricao;
+    private static int contadorId = 1;
 
    
-    public Atendimento(int id, EstadoAtendimento status, Medico medico, Paciente paciente, String descricao) {
-        this.id=id;
+    public Atendimento(EstadoAtendimento status, Medico medico, Paciente paciente, String descricao) {
+        this.id=contadorId++;
         this.status = status;
         this.medico = medico;
         this.paciente = paciente;

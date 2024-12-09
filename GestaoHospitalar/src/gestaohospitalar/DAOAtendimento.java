@@ -6,6 +6,7 @@ package gestaohospitalar;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  *
@@ -29,18 +30,56 @@ public class DAOAtendimento {
         return null;
     }
 
-    public boolean update(int idAt, String crmMedico) {
+    public boolean update() {
+        Scanner scanner = new Scanner(System.in);
+        String id, crm, descr;
+        int resp, idAt;
+
+        System.out.println("--==[Alteração de Atendimento]==--");
+        System.out.println("Digite o id do atendimento a alterar? ");
+
+        idAt = scanner.nextInt();
+        scanner.nextLine();
+
         Atendimento existeA = read(idAt);
         if (existeA != null) {
+            System.out.println("Digite o crm medico responsavel: ");
+            crm = scanner.nextLine();
+
             Medico isMedico = existeA.getMedico();
 
-            if (isMedico != null && isMedico.getCrm().equals(crmMedico)) {
-                existeA.setStatus(existeA.getStatus());
-                existeA.setDescricao(existeA.getDescricao());
+            if (isMedico != null && isMedico.getCrm().equals(crm)) {
+                System.out.println("-=[Dados do atendimento de " + existeA.getPaciente().getNome() + " ]=-");
+                System.out.println("Estado atual: " + existeA.getStatus());
+                System.out.println("Alterar? (1-sim/2-não");
+                resp = scanner.nextInt();
+                scanner.skip("\n");
+                EstadoAtendimento[] estados = EstadoAtendimento.values();
+                if (resp == 1) {
+                    for (int i = 0; i < estados.length; i++) {
+                        System.out.println(i + " - " + estados[i]);
+                    }
+                    int escolha;
+                    System.out.print("Digite o numero correspondente ao novo estado desejado: ");
+                    escolha = scanner.nextInt();
+                    EstadoAtendimento estadoEscolhido = estados[escolha];
+                    existeA.setStatus(estadoEscolhido);
+                }
+                System.out.println("----------------------------------");
+                System.out.println("Descricao atual: " + existeA.getDescricao());
+                System.out.println("Alterar? (1-sim/2-não");
+                resp = scanner.nextInt();
+                scanner.skip("\n");
+                if (resp == 1) {
+                    System.out.println("Digite a nova descricao: ");
+                    descr = scanner.nextLine();
+                    existeA.setDescricao(descr);
+                }
+                System.out.println("----------------------------------");
                 return true;
             } else {
-
-                System.out.println("Somente o medico"+isMedico.getNome()+"que realizou o atendimento pode atualiza-lo.");
+                System.out.println("!= ACESSO NEGADO !=");
+                System.out.println("Somente o medico " + isMedico.getNome() + " que realizou o atendimento pode atualiza-lo.");
                 return false;
             }
         }

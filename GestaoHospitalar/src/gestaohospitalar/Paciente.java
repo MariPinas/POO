@@ -41,5 +41,6 @@ public class Paciente extends Pessoa {
         super.imprimir();
         System.out.println("Nome Convenio  : " + nomeConvenio);
         System.out.println("Numero Convenio: " + numeroConvenio);
+        System.out.println("====================================");
     }
 }

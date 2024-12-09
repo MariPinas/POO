@@ -67,5 +67,6 @@ public class Atendimento {
         System.out.println("Nome Paciente: " + paciente.getNome());
         System.out.println("Status: " + status);
         System.out.println("Descricao do atendimento: " + descricao);
+        System.out.println("=========================================");
     }
 }

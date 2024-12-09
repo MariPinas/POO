@@ -57,9 +57,12 @@ public class GestaoHospitalar {
                                 String numConv = scanner.nextLine();
                                 System.out.println("Digite o id do paciente: ");
                                 String id = scanner.nextLine();
-                                scanner.nextLine();
+                                
 
                                 Paciente pacienteC = daoPaciente.create(new Paciente(nome, id, cpf, end, tel, nomeConv, numConv));
+                                if (pacienteC != null) {
+                                    System.out.println("\nPaciente cadastrado!");
+                                }
                                 break;
                             case 2:
                                 System.out.println("\n=== Lista de pacientes ===");
@@ -103,6 +106,7 @@ public class GestaoHospitalar {
                         System.out.println("[5] Voltar ao menu de acoes");
                         System.out.print("Escolha uma opcao: ");
                         int opcaoPedido = scanner.nextInt();
+                        scanner.nextLine();
 
                         switch (opcaoPedido) {
                             case 1:
@@ -123,10 +127,11 @@ public class GestaoHospitalar {
                                 String cpts = scanner.nextLine();
                                 System.out.println("Digite o id do medico: ");
                                 String id = scanner.nextLine();
-                                scanner.nextLine();
 
                                 Medico medicoC = daoMedico.create(new Medico(nome, id, cpf, end, tel, CRM, espe, cpts));
-
+                                if (medicoC != null) {
+                                    System.out.println("\nMedico cadastrado!");
+                                }
                                 break;
                             case 2:
                                 // Exibir Pedidos
@@ -137,7 +142,6 @@ public class GestaoHospitalar {
                                 System.out.println("\n=== Remover Medico ===");
                                 System.out.println("Digite o Id do medico a excluir: ");
                                 String idExcluir = scanner.nextLine();
-                                scanner.nextLine();
                                 Medico medicoSD = daoMedico.read(idExcluir);
 
                                 if (daoMedico.delete(medicoSD)) {
@@ -167,7 +171,8 @@ public class GestaoHospitalar {
                         System.out.println("[5] Voltar ao menu de acoes");
                         System.out.print("Escolha uma opcao: ");
                         int opcaoAtendimento = scanner.nextInt();
-
+                        scanner.nextLine();
+                        
                         switch (opcaoAtendimento) {
                             case 1:
                                 System.out.println("====Realizar Atendimento====");
@@ -215,23 +220,14 @@ public class GestaoHospitalar {
                                 }
                                 break;
                             case 4:
-                                System.out.println("==== ATUALIZAR ATENDIMENTO ====");
-                                System.out.println("ID ATENDIMENTO: ");
-                                int idAT = scanner.nextInt();
-                                System.out.println("CRM MEDICO RESPONSAVEL");
-                                String crmM = scanner.nextLine();
-                                daoAtendimento.update(idAT, crmM);
+                                daoAtendimento.update();
                             case 5:
-                                noMenuMedico = false;
+                                noMenuAtendimento = false;
                                 break;
                             default:
                                 System.out.println("Opcao invalida. Tente novamente.");
                         }
                     }
-                    break;
-                case 4:
-                    System.out.println("Dia de trabalho finalizado.");
-                    noMenuAtendimento = false;
                     break;
                 default:
                     System.out.println("Opcao invalida. Tente novamente.");

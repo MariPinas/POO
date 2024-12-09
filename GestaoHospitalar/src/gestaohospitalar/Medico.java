@@ -48,6 +48,7 @@ public class Medico extends Pessoa{
         System.out.println("C.R.M.         : " + crm);
         System.out.println("Especialidade  : " + especialidade);
         System.out.println("C.T.P.S.       : " + ctps);
+        System.out.println("=====================================");
     }
     
 }

@@ -16,15 +16,15 @@ public class DAOMedico {
 
     private List<Medico> databaseMedicos = new ArrayList();
 
-    public Medico create(Medico d) {
-        databaseMedicos.add(d);
-        return d;
+    public Medico create(Medico m) {
+        databaseMedicos.add(m);
+        return m;
     }
 
     public Medico read(String id) {
-        for (Medico d : databaseMedicos) {
-            if (d.getIdentidade().equals(id)) {
-                return d;
+        for (Medico m : databaseMedicos) {
+            if (m.getIdentidade().equals(id)) {
+                return m;
             }
         }
         return null;
@@ -36,9 +36,15 @@ public class DAOMedico {
         int resp;
 
         System.out.println("--==[Alteração de Médicos]==--");
-        System.out.println("Digite o id medico a alterar? ");
 
-        id = scanner.nextLine();
+        do {
+            System.out.println("Digite o id do medico a alterar: ");
+            id = scanner.nextLine();
+            if (id.isEmpty()) {
+                System.out.println("Idenficacao de medico invalida. Por favor, digite novamente.");
+            }
+        } while (id.isEmpty());
+
         Medico existeM = read(id);
 
         if (existeM != null) {
@@ -127,8 +133,10 @@ public class DAOMedico {
             System.out.println("Atualização realizada com sucesso.");
 
             return true;
+        } else {
+            System.out.println("Nao foi possivel atualizar - Medico nao existe");
+            return false;
         }
-        return false;
     }
 
     public boolean delete(Medico d) {
@@ -145,6 +153,9 @@ public class DAOMedico {
         for (Medico i : databaseMedicos) {
             i.imprimir();
         }
+    }
 
+    public int getMedicoCount() {
+        return databaseMedicos.size();
     }
 }

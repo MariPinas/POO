@@ -16,15 +16,15 @@ public class DAOAtendimento {
 
     private List<Atendimento> databaseAtendimentos = new ArrayList();
 
-    public Atendimento create(Atendimento d) {
-        databaseAtendimentos.add(d);
-        return d;
+    public Atendimento create(Atendimento a) {
+        databaseAtendimentos.add(a);
+        return a;
     }
 
     public Atendimento read(int id) {
-        for (Atendimento d : databaseAtendimentos) {
-            if (d.getId() == id) {
-                return d;
+        for (Atendimento a : databaseAtendimentos) {
+            if (a.getId() == id) {
+                return a;
             }
         }
         return null;
@@ -32,15 +32,19 @@ public class DAOAtendimento {
 
     public boolean update() {
         Scanner scanner = new Scanner(System.in);
-        String id, crm, descr;
+        String id, crm, descr, entrada;
         int resp, idAt;
 
         System.out.println("--==[Alteração de Atendimento]==--");
-        System.out.println("Digite o id do atendimento a alterar? ");
+        do {
+            System.out.println("Digite o id do atendimento a alterar? ");
+            entrada = scanner.nextLine().trim();
+            if (entrada.isEmpty() || !entrada.matches("\\d+")) { //dessa forma somente permite numeros
+                System.out.println("\nid invalido. Por favor, digite um numero inteiro\n");
+            }
+        } while (entrada.isEmpty() || !entrada.matches("\\d+"));
 
-        idAt = scanner.nextInt();
-        scanner.nextLine();
-
+        idAt = Integer.parseInt(entrada);
         Atendimento existeA = read(idAt);
         if (existeA != null) {
             System.out.println("Digite o crm medico responsavel: ");
@@ -82,13 +86,16 @@ public class DAOAtendimento {
                 System.out.println("Somente o medico " + isMedico.getNome() + " que realizou o atendimento pode atualiza-lo.");
                 return false;
             }
+        } else {
+            System.out.println("ID de atendimento nao encontrado - Nao foi possivel atualizar");
+            return false;
         }
-        return false;
+
     }
 
     public boolean delete(Atendimento d) {
-        Atendimento existeP = read(d.getId());
-        if (existeP != null) {
+        Atendimento existeA = read(d.getId());
+        if (existeA != null) {
             databaseAtendimentos.remove(d);
             return true;
         }
@@ -96,10 +103,12 @@ public class DAOAtendimento {
     }
 
     public void getAll() {
-
         for (Atendimento i : databaseAtendimentos) {
             i.imprimir();
         }
+    }
 
+    public int getAtendimentoCount() {
+        return databaseAtendimentos.size();
     }
 }

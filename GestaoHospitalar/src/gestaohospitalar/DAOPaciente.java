@@ -34,10 +34,15 @@ public class DAOPaciente {
         Scanner scanner = new Scanner(System.in);
         String nome, id, cpf, end, tel, nomeConv, numConv;
         int resp;
-        System.out.println("Digite o id do paciente a alterar: ");
-        id = scanner.nextLine();
+
+        do {
+            System.out.println("Digite o id do paciente a alterar: ");
+            id = scanner.nextLine();
+            if (id.isEmpty()) {
+                System.out.println("Idenficacao de paciente invalida. Por favor, digite novamente.");
+            }
+        } while (id.isEmpty());
         Paciente existeP = read(id);
-        
         if (existeP != null) {
             System.out.println("-=[Dados]=-");
             System.out.println("Nome atual: " + existeP.getNome());
@@ -113,9 +118,10 @@ public class DAOPaciente {
 
             System.out.println("Atualização realizada com sucesso.");
             return true;
+        } else {
+            System.out.println("Paciente nao existe - Nao foi possivel atualizar");
+            return false;
         }
-
-        return false;
     }
 
     public boolean delete(Paciente d) {
@@ -135,4 +141,7 @@ public class DAOPaciente {
 
     }
 
+    public int getPacienteCount() {
+        return databasePacientes.size();
+    }
 }

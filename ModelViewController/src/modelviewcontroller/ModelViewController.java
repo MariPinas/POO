@@ -6,6 +6,7 @@ public class ModelViewController {
         Model model=new Model();
         View view = new View();
         Controller controller = new Controller();
+        View2 view2 = new View2();
         
         controller.rotiar(view, model);
         

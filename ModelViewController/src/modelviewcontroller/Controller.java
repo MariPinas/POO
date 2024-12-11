@@ -1,7 +1,7 @@
 package modelviewcontroller;
 
 public class Controller {
-    public void rotiar(View view, Model model){
+    public void rotiar(iView view, Model model){
         view.setModel(model);
         model.setView(view);
     }

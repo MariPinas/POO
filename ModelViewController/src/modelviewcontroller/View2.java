@@ -1,6 +1,6 @@
 package modelviewcontroller;
 
-public class View implements iView{
+public class View2 implements iView{
 
     String dados = "";
     Model model;
@@ -10,7 +10,7 @@ public class View implements iView{
     }
 
     public void MostrarDados() {
-        System.out.println("A-"+dados);
+        System.out.println("B-"+dados);
     }
     
     public void update(){

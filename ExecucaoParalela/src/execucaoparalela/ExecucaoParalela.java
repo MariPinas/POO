@@ -27,6 +27,17 @@ public class ExecucaoParalela {
         Corredor corredor = new Corredor();
         Thread t=new Thread(corredor);
         t.start();
+        
+        Runnable corresim = new Runnable(){
+            public void run(){
+                while(true){
+                    System.out.println("run anonima");
+                }
+            }
+        };
+        Thread tt=new Thread(corresim);
+        tt.start();
+        
     }
     
 }

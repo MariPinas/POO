@@ -16,6 +16,7 @@ public class PrincipalBA {
         ControllerBA c = new ControllerBA();
         c.liga(v, m);
         m.update("Hello World!!");
+        v.insertData("haii");
         System.out.println(""); //psvm cntrl space enter e essa sot cntrl espaco enter
     }
 }

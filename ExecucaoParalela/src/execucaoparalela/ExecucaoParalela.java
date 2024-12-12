@@ -11,9 +11,18 @@ public class ExecucaoParalela {
         
         a.setPriority(9);
         b.setPriority(9);
-        while(true){
-            System.out.println("Principal");
-        }
+//        while(true){
+//            System.out.println("Principal");
+//        }
+        
+        Thread thread = new Thread(){
+            public void run(){
+                while(true){
+                    System.out.println("anonima");
+                }
+            }
+        };
+        thread.start();
     }
     
 }

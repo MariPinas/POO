@@ -37,7 +37,15 @@ public class ExecucaoParalela {
         };
         Thread tt=new Thread(corresim);
         tt.start();
+        //==
         
+        Runnable correlambda=()->{
+            while(true){
+                System.out.println("lambda");
+            }
+        };
+        Thread ttt=new Thread(correlambda);
+        ttt.start();
     }
     
 }

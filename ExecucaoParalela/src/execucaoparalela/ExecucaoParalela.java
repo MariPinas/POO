@@ -23,6 +23,10 @@ public class ExecucaoParalela {
             }
         };
         thread.start();
+        
+        Corredor corredor = new Corredor();
+        Thread t=new Thread(corredor);
+        t.start();
     }
     
 }

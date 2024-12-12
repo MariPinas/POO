@@ -1,9 +1,10 @@
+
 package modelviewcontroller;
 
-public class Model implements iModel{
+
+public class Model2 implements iModel{
     String dados="";
     iView view;
-    
     @Override
     public void setView(iView view){
         this.view=view;
@@ -14,6 +15,7 @@ public class Model implements iModel{
         view.update();
     }
     
+    @Override
     public String getDados(){
         return dados;
     }

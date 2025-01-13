@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Usuario {
 	private String nome;
-	private List<Livro> livrosRetirados = new ArrayList();
+	private List<Livro> livrosRetirados = new ArrayList<Livro>();
 
 	public Usuario(String st) {
 		nome = st;

@@ -1,8 +1,8 @@
 package com.example.demo;
 
 public class UsuarioProfessor extends Usuario {
-	UsuarioProfessor(String st) {
-		super(st);
+	UsuarioProfessor(String st, int id) {
+		super(st, id);
 	}
 
 	public boolean bloqueiaLivro(Livro it, int prazo) {

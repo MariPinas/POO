@@ -5,13 +5,20 @@ import java.util.GregorianCalendar;
 import java.util.Date;
 
 public class Livro {
+	private int id;
 	private String titulo;
+	
 	private Usuario retiradoPor;
 	private Date dtEmprestimo;
 	private Date dtDevolucao;
 	private Usuario bloqueadoPor;
 	private Date dtBloqueio;
 	private Date dtDesbloqueio;
+	
+	public Livro(int id, String titulo, String autor) {
+        this.id = id;
+        this.titulo = titulo;
+    }
 
 	public boolean isEmprestado() {
 		return (!(retiradoPor == null));
@@ -92,5 +99,23 @@ public class Livro {
 		cal.setTime(dt);
 		return (cal.get(Calendar.DATE) + "/" + (cal.get(Calendar.MONTH) + 1) + "/" + cal.get(Calendar.YEAR));
 	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getId() {
+		return id;
+	}
+	
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	
 
 }

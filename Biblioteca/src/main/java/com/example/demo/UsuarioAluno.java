@@ -4,9 +4,9 @@ import java.util.Date;
 
 public class UsuarioAluno extends Usuario {
 	private Date dataLimite;
-
-	UsuarioAluno(String st, Date dt) {
-		super(st);
+	
+	UsuarioAluno(String st, int id, Date dt) {
+		super(st,id);
 		dataLimite = dt;
 	}
 

@@ -4,13 +4,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Usuario {
+	private int id;
 	private String nome;
 	private List<Livro> livrosRetirados = new ArrayList<Livro>();
 
-	public Usuario(String st) {
-		nome = st;
+	public Usuario(String st, int id) {
+		this.nome = st;
+		this.id=id;
+	}
+	
+	public int getId() {
+		return id;
 	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public List<Livro> getLivrosRetirados() {
+		return livrosRetirados;
+	}
+
+	public void setLivrosRetirados(List<Livro> livrosRetirados) {
+		this.livrosRetirados = livrosRetirados;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
 	public boolean retiraLivro(Livro it) {
 		if (isAptoARetirar()) {
 			if (it.empresta(this, getPrazoMaximo())) {
@@ -76,5 +98,8 @@ public class Usuario {
 			System.out.println(livro);
 		}
 	}
+	
+	
+
 
 }
